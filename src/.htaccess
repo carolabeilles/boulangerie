@@ -1,0 +1,2 @@
+# Ce dossier ne doit jamais être accessible depuis Internet (idéalement, placez-le hors du dossier public).
+Require all denied

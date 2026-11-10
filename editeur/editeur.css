@@ -1,0 +1,32 @@
+:root{--fond:#fffaf3;--texte:#3b2a1e;--doux:#5a4636;--accent:#8a4a12;--creme:#f3e6d3;--bord:#d9c7ad;--ok:#1f6b2a;--ko:#a3211a}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:18px;line-height:1.5;color:var(--texte);background:var(--fond)}
+h1,h2{font-family:Georgia,"Times New Roman",serif;line-height:1.2;margin:0 0 .5rem}
+h1{font-size:1.5rem}
+h2{font-size:1.25rem}
+a{color:var(--accent)}
+.entete{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem;background:var(--creme);border-bottom:1px solid var(--bord)}
+.contenu{max-width:42rem;margin:0 auto;padding:1rem 1rem 6rem}
+.carte{background:#fff;border:1px solid var(--bord);border-radius:.75rem;padding:1rem;margin:0 0 1rem}
+.etroite{max-width:26rem;margin:2rem auto}
+.aide{color:var(--doux);font-size:.95rem;margin:0 0 .75rem}
+label{display:block;font-weight:600;margin:0 0 .75rem}
+input:not([type=checkbox]),textarea{display:block;width:100%;margin-top:.25rem;padding:.7rem .8rem;font:inherit;font-weight:400;color:var(--texte);background:#fff;border:1px solid var(--bord);border-radius:.5rem}
+textarea{resize:vertical}
+input:focus,textarea:focus,button:focus,summary:focus{outline:3px solid #e0a25e;outline-offset:1px}
+.case{display:flex;align-items:center;gap:.6rem;font-weight:600}
+.case input{width:1.4rem;height:1.4rem;margin:0}
+.deux{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.jour{border:1px solid var(--bord);border-radius:.5rem;padding:.5rem .75rem .25rem;margin:0 0 .75rem}
+.jour legend{font-weight:700;padding:0 .25rem}
+.plages{display:grid;grid-template-columns:1fr 1fr;gap:.5rem .75rem;margin-top:.5rem}
+.plages label{font-size:.9rem;margin:0 0 .5rem}
+button{font:inherit;font-weight:700;padding:.8rem 1.4rem;border:0;border-radius:999px;background:var(--accent);color:#fff;cursor:pointer}
+button.secondaire{background:var(--texte)}
+.barre{position:fixed;left:0;right:0;bottom:0;padding:.75rem 1rem;background:var(--creme);border-top:1px solid var(--bord);text-align:center}
+.barre button{width:100%;max-width:42rem}
+.succes{background:#e6f4e8;color:var(--ok);border:1px solid #b9dcbf;border-radius:.5rem;padding:.75rem 1rem;font-weight:600}
+.erreur{background:#fdecea;color:var(--ko);border:1px solid #f1b9b5;border-radius:.5rem;padding:.75rem 1rem;margin:0 0 1rem}
+.erreur ul{margin:.25rem 0 0;padding-left:1.25rem}
+summary{cursor:pointer;font-weight:700}
+@media (max-width:30rem){.deux{grid-template-columns:1fr}.entete{flex-direction:column;align-items:flex-start}}

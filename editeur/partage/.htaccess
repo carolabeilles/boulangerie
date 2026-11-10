@@ -1,0 +1,11 @@
+Options -Indexes
+
+# Ce dossier ne sert que des images : aucun script ne doit pouvoir s'y exécuter.
+<FilesMatch "\.(php|phtml|phar|pl|py|cgi)$">
+    Require all denied
+</FilesMatch>
+
+# L'image de promo change sans changer de nom : les navigateurs la revérifient toutes les 5 minutes.
+<IfModule mod_headers.c>
+    Header set Cache-Control "public, max-age=300, must-revalidate"
+</IfModule>

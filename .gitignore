@@ -1,0 +1,6 @@
+# Jamais dans Git : secrets, données des boulangeries, sites générés
+config.php
+data/*
+!data/.htaccess
+sites/
+*.log

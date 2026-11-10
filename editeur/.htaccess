@@ -1,0 +1,13 @@
+Options -Indexes
+DirectoryIndex index.php
+
+# Aucun fichier caché (.htaccess, .git…) ne doit être servi.
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Redirection automatique vers HTTPS : à décommenter après avoir vérifié que votre hébergement
+# la gère sans boucle de redirection (les cookies de session exigent HTTPS).
+# RewriteEngine On
+# RewriteCond %{HTTPS} !=on
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]

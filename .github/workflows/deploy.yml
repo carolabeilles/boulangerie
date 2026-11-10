@@ -1,0 +1,40 @@
+name: Déploiement FTP
+
+# Se déclenche uniquement quand une modification est validée sur la branche main.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Vérification de syntaxe : on n'envoie rien si un fichier PHP est cassé.
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+      - name: Vérifier la syntaxe PHP
+        run: |
+          find . -name '*.php' -not -path './.git/*' -print0 | xargs -0 -n1 php -l > /dev/null
+
+      - name: Envoyer sur le serveur
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ${{ secrets.FTP_PROTOCOL }}   # ftp, ftps ou ftps-legacy
+          server-dir: ${{ secrets.FTP_DIR }}      # ex. /boulangerie/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            exemple-images/**
+            README.md
