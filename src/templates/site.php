@@ -38,29 +38,34 @@ $jsData = [
 <?php if ($description !== ''): ?><meta name="description" content="<?= h($description) ?>">
 <?php endif; ?>
 <style>
-:root{--fond:#fffaf3;--texte:#3b2a1e;--doux:#5a4636;--accent:#b5651d;--fonce:#8a4a12;--creme:#f3e6d3;--ok:#2e7d32;--ko:#b3261e}
+/* Charte Moulins Bourgeois : rouge du logo, texte gris très foncé, fonds chauds et clairs, titres en serif, angles peu arrondis. */
+:root{--fond:#fff;--texte:#2a2a2a;--doux:#5c5557;--accent:#8c2634;--fonce:#6e1d29;--creme:#f6eeee;--filet:#e6d9db;--ok:#2e7d32;--ko:#8c2634}
 *{box-sizing:border-box}
 body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;color:var(--texte);background:var(--fond)}
 img{max-width:100%;height:auto;display:block}
-a{color:var(--fonce)}
-h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2}
-.alerte{background:var(--fonce);color:#fff;text-align:center;padding:.75rem 1rem;font-weight:600;margin:0}
-.actions{position:sticky;top:0;z-index:10;display:flex;gap:.5rem;justify-content:center;padding:.5rem;background:var(--fond);border-bottom:1px solid var(--creme)}
-.btn{display:inline-block;padding:.6rem 1.2rem;border-radius:999px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
-.btn-2{background:var(--texte)}
+a{color:var(--accent);text-underline-offset:.15em}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;color:var(--accent)}
+.alerte{background:var(--accent);color:#fff;text-align:center;padding:.75rem 1rem;font-weight:600;margin:0}
+.actions{position:sticky;top:0;z-index:10;display:flex;gap:.5rem;justify-content:center;padding:.6rem;background:var(--fond);border-bottom:1px solid var(--filet)}
+.btn{display:inline-block;padding:.65rem 1.4rem;border:2px solid var(--accent);border-radius:.25rem;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;letter-spacing:.02em}
+.btn-2{background:transparent;color:var(--accent)}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--texte);outline-offset:2px}
 .hero{background:var(--creme)}
 .hero img{width:100%;aspect-ratio:2/1;max-height:60vh;object-fit:cover}
-.hero-txt{padding:1.5rem 1rem 2rem;max-width:42rem;margin:0 auto;text-align:center}
-.hero-txt h1{margin:0 0 .5rem;font-size:clamp(1.8rem,6vw,3rem)}
+.hero-txt{padding:1.75rem 1rem 2.25rem;max-width:42rem;margin:0 auto;text-align:center}
+.hero-txt h1{margin:0 0 .6rem;font-size:clamp(1.8rem,6vw,3rem)}
+.hero-txt h1::after{content:"";display:block;width:3rem;height:3px;background:var(--accent);margin:.75rem auto 0}
+.hero-txt p{margin:0;color:var(--doux)}
 .bloc{max-width:52rem;margin:0 auto;padding:2.5rem 1rem}
 .bloc h2{margin-top:0;font-size:1.8rem}
+.bloc+.bloc{border-top:1px solid var(--filet)}
 .promo{max-width:52rem;margin:0 auto;padding:1.5rem 1rem 0}
-.promo img{width:100%;border-radius:.75rem}
+.promo img{width:100%;border-radius:.25rem}
 .galerie{display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:.75rem}
-.galerie img{border-radius:.5rem;width:100%;aspect-ratio:4/3;object-fit:cover}
+.galerie img{border-radius:.25rem;width:100%;aspect-ratio:4/3;object-fit:cover}
 .horaires{width:100%;max-width:26rem;border-collapse:collapse}
-.horaires th,.horaires td{text-align:left;padding:.35rem .5rem;border-bottom:1px solid var(--creme)}
-.horaires tr.aujourdhui{background:var(--creme);font-weight:600}
+.horaires th,.horaires td{text-align:left;padding:.4rem .5rem;border-bottom:1px solid var(--filet)}
+.horaires tr.aujourdhui{background:var(--creme);font-weight:600;color:var(--fonce)}
 .statut{font-weight:700;margin:0 0 .75rem}
 .statut.ouvert{color:var(--ok)}
 .statut.ferme{color:var(--ko)}
@@ -69,8 +74,9 @@ h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2}
 .infos h3{margin:0 0 .25rem;font-size:1.1rem}
 .infos p{margin:0}
 address{font-style:normal}
-.pied{text-align:center;padding:1.5rem 1rem;background:var(--creme);font-size:.9rem}
-.pied p{margin:0}
+.pied{text-align:center;padding:1.5rem 1rem;background:var(--accent);color:#fff;font-size:.9rem}
+.pied p{margin:.15rem 0}
+.pied a{color:#fff}
 </style>
 </head>
 <body>
@@ -158,6 +164,8 @@ address{font-style:normal}
 
 <footer class="pied">
 <p>&copy; <?= h(date('Y')) ?> <?= h($nom) ?> &middot; <a href="mentions-legales.html">Mentions légales</a></p>
+<?php if (trim((string) ($cfg['signature'] ?? '')) !== ''): ?><p><?= h((string) $cfg['signature']) ?></p>
+<?php endif; ?>
 </footer>
 
 <script>
