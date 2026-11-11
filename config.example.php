@@ -20,6 +20,9 @@ return [
     'hebergeur' => '[Nom et adresse de l’hébergeur]',
     'realisation' => '[Votre nom]',
 
+    // Mention facultative affichée en pied de chaque site (laisser vide pour ne rien afficher).
+    'signature' => 'Un service proposé par les Moulins Bourgeois',
+
     // true en production (HTTPS obligatoire). false uniquement pour un essai local en http.
     'cookie_secure' => true,
 

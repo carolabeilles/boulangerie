@@ -16,10 +16,10 @@ $champ = function (string $cle) use ($legal): string {
 <meta name="robots" content="noindex">
 <title>Mentions légales – <?= h((string) $s['nom']) ?></title>
 <style>
-body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;color:#3b2a1e;background:#fffaf3}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;color:#2a2a2a;background:#fff}
 main{max-width:42rem;margin:0 auto;padding:2rem 1rem}
-h1,h2{font-family:Georgia,"Times New Roman",serif;line-height:1.2}
-a{color:#8a4a12}
+h1,h2{font-family:Georgia,"Times New Roman",serif;line-height:1.2;color:#8c2634}
+a{color:#8c2634}
 </style>
 </head>
 <body>
